@@ -171,39 +171,61 @@ SPECTACULAR_SETTINGS = {
     "DEFAULT_GENERATOR_CLASS": "drf_spectacular.generators.SchemaGenerator",
     "DEFAULT_ERROR_RESPONSES": {
         400: {
-            "description": "Bad Request - Validation Error",
+            "description": "Bad Request",
             "content": {
                 "application/json": {
                     "example": {
                         "success": False,
                         "message": "Validation failed",
                         "code": "validation_error",
-                        "errors": {"field_name": ["Error message here"]},
+                        "data": None,
+                        "errors": {
+                            "field_name": ["This field is required."],
+                            "another_field": ["Invalid format."]
+                        }
                     }
                 }
             },
         },
         401: {
-            "description": "Unauthorized - Authentication required",
+            "description": "Unauthorized",
             "content": {
                 "application/json": {
-                    "example": {"success": False, "message": "Authentication required", "code": "authentication_error"}
+                    "example": {
+                        "success": False,
+                        "message": "Authentication credentials were not provided.",
+                        "code": "authentication_error",
+                        "data": None,
+                        "errors": {"detail": "Authentication required"}
+                    }
                 }
             },
         },
         403: {
-            "description": "Forbidden - Permission denied",
+            "description": "Forbidden",
             "content": {
                 "application/json": {
-                    "example": {"success": False, "message": "Permission denied", "code": "permission_error"}
+                    "example": {
+                        "success": False,
+                        "message": "You do not have permission to perform this action.",
+                        "code": "permission_error",
+                        "data": None,
+                        "errors": {"detail": "Permission denied"}
+                    }
                 }
             },
         },
         404: {
-            "description": "Not Found - Resource does not exist",
+            "description": "Not Found",
             "content": {
                 "application/json": {
-                    "example": {"success": False, "message": "Resource not found", "code": "not_found_error"}
+                    "example": {
+                        "success": False,
+                        "message": "The requested resource was not found.",
+                        "code": "not_found_error",
+                        "data": None,
+                        "errors": {"detail": "Resource not found"}
+                    }
                 }
             },
         },
@@ -211,16 +233,32 @@ SPECTACULAR_SETTINGS = {
             "description": "Internal Server Error",
             "content": {
                 "application/json": {
-                    "example": {"success": False, "message": "Internal server error", "code": "server_error"}
+                    "example": {
+                        "success": False,
+                        "message": "An unexpected error occurred on the server.",
+                        "code": "server_error",
+                        "data": None
+                    }
                 }
             },
         },
     },
+    "ENUM_NAME_OVERRIDES": {
+        "QuestionTypeEnum": "apps.exams.models.Question.QuestionType",
+        "SubmissionStatusEnum": "apps.submissions.models.Submission.SubmissionStatus",
+        "UserRoleEnum": "apps.accounts.models.User.Role",
+    },
     "SWAGGER_UI_SETTINGS": {
         "persistAuthorization": True,
+        "displayOperationId": False,
+        "defaultModelsExpandDepth": 1,
+        "defaultModelExpandDepth": 1,
+        "filter": True,
     },
     "PREPROCESSING_HOOKS": [],
-    "POSTPROCESSING_HOOKS": [],
+    "POSTPROCESSING_HOOKS": [
+        "apps.common.utils.swagger_utils.wrap_responses_hook",
+    ],
 }
 
 # CORS

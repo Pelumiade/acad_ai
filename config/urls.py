@@ -17,15 +17,15 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from django.http import HttpResponse
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView, SpectacularRedocView
 
 urlpatterns = [
+    path('', lambda request: HttpResponse("Welcome to ACAD_AI API"), name='home'),
     path("admin/", admin.site.urls),
-    # API Documentation
     path("schema/", SpectacularAPIView.as_view(), name="schema"),
     path("docs/", SpectacularSwaggerView.as_view(url_name="schema"), name="swagger-ui"),
     path("redoc/", SpectacularRedocView.as_view(url_name="schema"), name="redoc"),
-    # App URLs
     path("auth/", include("apps.accounts.urls")),
     path("exams/", include("apps.exams.urls")),
     path("submissions/", include("apps.submissions.urls")),
