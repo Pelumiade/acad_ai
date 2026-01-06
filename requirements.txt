@@ -1,3 +1,3 @@
-# Main requirements file - points to production
+# Main requirements file - points to dev
 -r requirements/development.txt
 
