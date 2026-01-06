@@ -21,8 +21,6 @@ psycopg2-binary>=2.9.0
 # Grading dependencies
 scikit-learn>=1.3.0
 
-# Optional LLM support (install as needed)
-# For Gemini: pip install google-genai
-# For Claude: pip install anthropic
-# For OpenAI: pip install openai
+# LLM support
+google-genai>=0.3.0
 

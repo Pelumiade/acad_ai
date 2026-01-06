@@ -1,5 +1,6 @@
 # Include base requirements
 -r base.txt
+-r test.txt
 
 # Development tools
 ipython>=8.0.0
