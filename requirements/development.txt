@@ -1,0 +1,7 @@
+# Include base requirements
+-r base.txt
+
+# Development tools
+ipython>=8.0.0
+django-debug-toolbar>=4.2.0
+

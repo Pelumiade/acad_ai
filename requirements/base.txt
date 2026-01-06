@@ -1,0 +1,28 @@
+# Core Django
+Django>=5.0,<6.0
+djangorestframework>=3.15.0
+django-environ>=0.11.0
+
+# JWT Authentication
+djangorestframework-simplejwt>=5.3.0
+
+# API Documentation
+drf-spectacular>=0.27.0
+
+# CORS
+django-cors-headers>=4.4.0
+
+# Filtering
+django-filter>=25.0
+
+# Database (PostgreSQL support)
+psycopg2-binary>=2.9.0
+
+# Grading dependencies
+scikit-learn>=1.3.0
+
+# Optional LLM support (install as needed)
+# For Gemini: pip install google-genai
+# For Claude: pip install anthropic
+# For OpenAI: pip install openai
+

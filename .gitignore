@@ -1,0 +1,87 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+build/
+dist/
+*.egg-info/
+.eggs/
+*.egg
+.mypy_cache/
+.pytype_cache/
+.ipynb_checkpoints/
+
+# Django
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+static/
+*.pot
+
+# Environment / Secrets
+.env
+.env.local
+.env.*.local
+.env.test
+.env.development
+.env.production
+.python-version
+
+# IDE / Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+.spyderproject
+.spyproject
+.project
+.pydevproject
+.settings/
+
+# Testing
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+.tox/
+.hypothesis/
+.cache/
+
+# Logs
+/logs/
+*.log
+!/logs/.gitkeep
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Celery / Redis
+celerybeat-schedule
+celerybeat.pid
+
+# Backup files
+*.bak
+*.backup
+
+# Others
+node_modules/
+.npm/
+.yarn/
+.gradle/
+*.zip
+*.tar.gz
+*.tgz
+swagger_testing_payloads.md

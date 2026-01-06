@@ -1,0 +1,3 @@
+# Main requirements file - points to production
+-r requirements/production.txt
+

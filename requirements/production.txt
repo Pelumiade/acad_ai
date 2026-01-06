@@ -1,0 +1,7 @@
+# Include base requirements
+-r base.txt
+
+# Production extras
+gunicorn>=21.2.0
+whitenoise>=6.6.0
+
