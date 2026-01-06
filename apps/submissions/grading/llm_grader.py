@@ -55,17 +55,7 @@ class LLMGrader(BaseGrader):
         return bool(answer_text and answer_text.strip())
 
     def grade_answer(self, question, answer_text: str, rubric: Dict = None) -> Tuple[float, str]:
-        """
-        Grade a single answer using LLM.
-
-        Args:
-            question: Question object with expected answer and rubric
-            answer_text: Student's submitted answer
-            rubric: Optional grading rubric override
-
-        Returns:
-            Tuple of (marks_obtained, feedback_text)
-        """
+        
         if not self._validate_answer(answer_text):
             return 0.0, "No answer provided"
 
@@ -190,15 +180,7 @@ Be fair but rigorous. Consider:
         return 0.0, response_text[:500] if len(response_text) > 500 else response_text
 
     def grade_submission(self, submission) -> Dict:
-        """
-        Grade all answers in a submission using LLM.
-
-        Args:
-            submission: Submission object with answers
-
-        Returns:
-            Dictionary with total score and grading details
-        """
+        
         from apps.submissions.models import Answer
         from django.utils import timezone
 
